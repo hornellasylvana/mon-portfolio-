@@ -1,0 +1,511 @@
+/* ==========================================================================
+   PORTFOLIO - KENFACK TAFADJI HORNELLA ANGE
+   Thème : Émeraude, Ardoise & Sarcelle
+   ========================================================================== */
+
+/* --- 1. VARIABLES GLOBALES & COULEURS --- */
+/* --- VARIABLES DE COULEURS (Thème Bleu Roi & Blanc) --- */
+:root {
+    --bg-dark: #121c3b;          /* Fond principal : Bleu roi foncé élégant */
+    --bg-surface: #1d2d5a;       /* Fond des cartes : Bleu roi intermédiaire */
+    --bg-surface-hover: #263c78; /* Survol des cartes : Bleu plus clair */
+    
+    --primary-emerald: #1e50ff;  /* Bleu électrique intense (comme votre tenue) */
+    --primary-glow: #4275ff;     /* Bleu lumineux pour les boutons et survols */
+    --teal-accent: #6c98ff;      /* Bleu ciel pour les sous-titres et détails */
+    
+    --text-main: #ffffff;        /* Texte principal : Blanc pur */
+    --text-subtle: #d0deff;      /* Texte secondaire : Bleu pastel très clair */
+    --border-color: #314a8c;     /* Bordures : Bleu moyen harmonieux */
+    
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    --transition-fast: all 0.25s ease-in-out;
+}
+
+/* --- 2. REINITIALISATION & BASE --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    padding-top: 80px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.center { text-align: center; }
+.top30 { margin-top: 30px; }
+
+.text_subtitle {
+    color: var(--primary-emerald);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* --- 3. BARRE DE NAVIGATION --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    background-color: rgba(11, 19, 25, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+#logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.menu a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-subtle);
+    transition: var(--transition-fast);
+}
+
+.menu a:hover {
+    color: var(--primary-glow);
+}
+
+/* --- 4. SECTION ACCUEIL (HERO) --- */
+.hero-section {
+    padding: 100px 24px 80px;
+    text-align: center;
+    background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.12) 0%, rgba(11, 19, 25, 0) 70%);
+}
+
+.hero-section h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 16px 0;
+    background: linear-gradient(135deg, #ffffff 30%, var(--primary-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-emerald);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.intro-description {
+    max-width: 680px;
+    margin: 0 auto 36px;
+    color: var(--text-subtle);
+    font-size: 1.05rem;
+}
+
+/* --- 5. BOUTONS --- */
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--primary-emerald);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(52, 211, 153, 0.4);
+}
+
+.btn-transparent {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-transparent:hover {
+    background-color: var(--bg-surface);
+    border-color: var(--primary-emerald);
+    color: var(--primary-glow);
+}
+
+/* --- 6. SECTION À PROPOS --- */
+.presentation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    align-items: center;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    box-shadow: var(--shadow-main);
+    outline: 8px solid rgba(16, 185, 129, 0.05);
+}
+
+.presentation-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.presentation-text p {
+    color: var(--text-subtle);
+    margin-bottom: 16px;
+}
+
+.info-list {
+    list-style: none;
+    margin-top: 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.info-list li {
+    padding: 10px 16px;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.info-list .cle {
+    font-weight: 600;
+    color: var(--primary-glow);
+    margin-right: 8px;
+}
+
+.bleu {
+    color: var(--teal-accent);
+}
+
+/* --- 7. CARTES (COMPÉTENCES, PROJETS, SERVICES) --- */
+#cards, .liste-service, .liste-image {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.card, .service-card, .project-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet moderne au survol */
+.card:hover, .service-card:hover, .project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    background-color: var(--bg-surface-hover);
+}
+
+.card h3, .service-card h3, .project-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    transition: var(--transition-fast);
+}
+
+.card:hover h3, .service-card:hover h3, .project-card:hover h3 {
+    color: var(--primary-glow);
+}
+
+.card p, .service-card p, .project-card p {
+    color: var(--text-subtle);
+    font-size: 0.95rem;
+}
+
+/* --- 8. FORMULAIRE DE CONTACT --- */
+#contact-form {
+    max-width: 680px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+input::placeholder, textarea::placeholder {
+    color: #6b7280;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-emerald);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* --- 9. PIED DE PAGE (FOOTER) --- */
+footer {
+    background-color: #070d11;
+    padding: 60px 24px 40px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+}
+
+footer h4 {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: var(--text-subtle);
+    font-size: 0.95rem;
+}
+
+.copyright {
+    color: #4b5563;
+    font-size: 0.85rem;
+}
+
+/* --- 10. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 20px;
+    }
+    
+    .menu {
+        gap: 16px;
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 50px 16px;
+    }
+}
+/* --- ANIMATION DE LA PHOTO --- */
+
+/* 1. Effet de flottement continu */
+@keyframes floatPhoto {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.profile-pic {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(24, 194, 112, 0.4); /* Bordure Rose */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    
+    /* Application de l'animation */
+    animation: floatPhoto 4s ease-in-out infinite;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 2. Effet au survol de la souris (Hover) */
+.profile-pic:hover {
+    transform: scale(1.05) translateY(-5px);
+    border-color: #18c287;
+    box-shadow: 0 15px 35px rgba(24, 194, 95, 0.4); /* Ombre lumineuse rose */
+}
+.profile-pic {
+    /* Augmente la taille et adapte le format pour voir tout le corps */
+    width: 340px;            /* Largeur agrandie */
+    height: 480px;           /* Hauteur augmentée pour le format portrait */
+    object-fit: contain;     /* Affiche TOUTE l'image sans rien couper */
+    background-color: var(--bg-surface); /* Fond discret si l'image n'occupe pas tout le cadre */
+    
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(24, 194, 109, 0.4); /* Bordure Rose */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    
+    /* Animation de flottement et transitions */
+    animation: floatPhoto 4s ease-in-out infinite;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Optionnel : Ajustement au survol de la souris */
+.profile-pic:hover {
+    transform: scale(1.03) translateY(-5px);
+    border-color: #18c262;
+    box-shadow: 0 15px 35px rgba(24, 194, 89, 0.4);
+}
+/* Alignement du logo et du nom */
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espace entre l'image du logo et votre nom */
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+/* Style de l'image du logo */
+.nav-logo-img {
+    height: 80px;         /* Ajustez la hauteur du logo selon vos préférences */
+    width: auto;          /* Conserve les proportions d'origine */
+    object-fit: contain;
+    border-radius: 4px;   /* Optionnel : arrondit légèrement les angles */
+}
+/* --- PIED DE PAGE (FOOTER) EN ORANGE --- */
+footer {
+    background-color: #ff6f00; /* Fond orange vif et professionnel */
+    border-top: 1px solid #e65100;
+    padding: 50px 24px 30px;
+}
+
+/* Texte principal dans le footer */
+footer h4 {
+    color: #ffffff; /* Nom en blanc pour une bonne lisibilité */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Sous-titre dans le footer */
+footer p {
+    color: #fff3e0; /* Texte secondaire en blanc/crème doux */
+    font-size: 0.95rem;
+}
+
+/* Texte de copyright tout en bas */
+.copyright {
+    color: #ffe0b2;
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+/* --- BARRE DE NAVIGATION (NAVBAR) EN ORANGE --- */
+.navbar {
+    background-color: #ff6f00; /* Fond orange comme le footer */
+    border-bottom: 1px solid #e65100;
+    padding: 18px 6%;
+}
+
+/* Nom / Logo dans la navbar */
+#logo {
+    color: #ffffff; /* Texte en blanc */
+}
+
+/* Liens du menu (Accueil, À propos, Compétences...) */
+.menu a {
+    color: #ffffff; /* Texte des liens en blanc */
+    font-weight: 600;
+}
+
+/* Effet au survol des liens du menu */
+.menu a:hover {
+    color: #ffe0b2; /* Changement de couleur doux au survol (crème/orange très clair) */
+}
+/* --- PIED DE PAGE (FOOTER) COMPACT --- */
+footer {
+    background-color: #ff6f00; /* Fond orange */
+    border-top: 1px solid #e65100;
+    padding: 20px 24px 15px;    /* Padding réduit (20px en haut, 15px en bas) */
+    margin-top: 40px;           /* Espace au-dessus du footer réduit */
+}
+
+/* Nom dans le footer */
+footer h4 {
+    color: #ffffff;
+    font-size: 1.05rem;         /* Taille du texte légèrement réduite */
+    margin-bottom: 4px;         /* Espace en dessous réduit */
+}
+
+/* Description dans le footer */
+footer p {
+    color: #fff3e0;
+    font-size: 0.85rem;         /* Taille de police plus petite */
+    line-height: 1.4;
+}
+
+/* Texte de copyright */
+.copyright {
+    color: #ffe0b2;
+    font-size: 0.75rem;
+    margin-top: 10px !important;/* Marge supérieure réduite */
+}
