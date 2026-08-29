@@ -612,3 +612,45 @@ footer p {
         display: flex;
     }
 }
+@media screen and (max-width: 1024px) {
+    .burger { 
+        display: flex !important; 
+    }
+    
+    .menu {
+        display: none;
+        position: absolute !important;
+        top: 65px !important;
+        right: 15px !important;
+        left: auto !important;
+        width: 190px !important;
+        background: rgba(13, 27, 30, 0.75) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+        padding: 15px 0 !important;
+        z-index: 10000 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .menu.active { 
+        display: flex !important; 
+    }
+    
+    .menu li { 
+        list-style: none !important; 
+        margin: 8px 0 !important; 
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .menu li a { 
+        color: #ffffff !important; 
+        text-decoration: none !important; 
+        font-size: 16px !important; 
+        display: block !important;
+    }
+}
