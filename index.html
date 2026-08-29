@@ -10,25 +10,14 @@
 
     <!-- BARRE DE NAVIGATION -->
     <nav class="navbar">
-        <a href="#accueil" id="logo"><img src="SolviaHub Logo.png" alt="logo SolviaHub" class="nav-logo-img"> <span>Hornella Ange</span>
+        <a href="#accueil" id="logo"><img src="logo.png" alt="logo SolviaHub" class="nav-logo-img"> <span>Hornella Ange</span>
         </a>
-        <ul class="menu">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Réalisations</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <header class="header">
-  <nav class="navbar">
-    <div class="logo">hornella</div>
 
-    <!-- Bouton Burger / Croix -->
-    <button class="burger-btn" id="burger-btn" aria-label="Menu">
-      <span class="icon-burger">☰</span>
-      <span class="icon-close">✕</span>
-    </button>
+</header>
+
+<!-- Le reste de votre contenu -->
+
+<script src="script.js"></script>
 
     <!-- Menu déroulant mobile -->
     <ul class="nav-menu" id="nav-menu">
@@ -147,27 +136,22 @@
                 </div>
             </div>
         </article>
-
-        <!-- SECTION CONTACT -->
-        <article class="contact-section" id="contact">
-            <div class="container">
-                <p class="text_subtitle center">Échangeons</p>
-                <h2 class="center">Me Contacter</h2>
-                
-                <form method="POST" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="nom" placeholder="Votre Nom *" required>
-                        <input type="email" name="email" placeholder="Votre Email *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="telephone" placeholder="Téléphone">
-                        <input type="text" name="sujet" placeholder="Sujet">
-                    </div>
-                    <textarea name="message" placeholder="Votre message *" required></textarea>
-                    <p class="center"><button type="submit" class="btn btn-primary top30">Envoyer un message</button></p>
-                </form>
+<!-- Formulaire de Contact -->
+<section id="contact">
+    <h2>Contactez-moi</h2>
+    
+    <form id="contact-form">
+        <input type="text" id="nom" placeholder="Votre Nom *" required>
+        <input type="email" id="email" placeholder="Votre Email *" required>
+        <input type="tel" id="phone" placeholder="Votre Téléphone">
+         <input type="localisation" id="localisation" placeholder="Votre localisation *" required>
+        <input type="text" id="sujet" placeholder="Sujet">
+        <textarea id="message" placeholder="Votre message *" required></textarea>
+        
+        <button type="submit" class="btn">Envoyer un message sur WhatsApp</button>
+    </form>
+</section>
             </div>
-        </article>
 
     </main>
 

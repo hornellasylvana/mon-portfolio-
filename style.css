@@ -434,8 +434,8 @@ footer p {
 }
 /* --- PIED DE PAGE (FOOTER) EN ORANGE --- */
 footer {
-    background-color: #ff6f00; /* Fond orange vif et professionnel */
-    border-top: 1px solid #e65100;
+    background-color: blue; /* Fond orange vif et professionnel */
+    border-top: 1px solid blue;
     padding: 50px 24px 30px;
 }
 
@@ -461,8 +461,8 @@ footer p {
 }
 /* --- BARRE DE NAVIGATION (NAVBAR) EN ORANGE --- */
 .navbar {
-    background-color: #ff6f00; /* Fond orange comme le footer */
-    border-bottom: 1px solid #e65100;
+    background-color:blue; /* Fond orange comme le footer */
+    border-bottom: 1px solid blue;
     padding: 18px 6%;
 }
 
@@ -483,8 +483,8 @@ footer p {
 }
 /* --- PIED DE PAGE (FOOTER) COMPACT --- */
 footer {
-    background-color: #ff6f00; /* Fond orange */
-    border-top: 1px solid #e65100;
+    background-color:blue; /* Fond orange */
+    border-top: 1px solid blue;
     padding: 20px 24px 15px;    /* Padding réduit (20px en haut, 15px en bas) */
     margin-top: 40px;           /* Espace au-dessus du footer réduit */
 }
@@ -508,4 +508,107 @@ footer p {
     color: #ffe0b2;
     font-size: 0.75rem;
     margin-top: 10px !important;/* Marge supérieure réduite */
+}
+/* Styles de base pour la navbar */
+.header {
+    background-color:blue; /* La couleur orange de votre fond */
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 100; /* Assure que la navbar est au-dessus */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Styles pour les liens (version bureau) */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Le bouton burger et l'icône de fermeture sont masqués sur bureau */
+.menu-toggle, .close-menu {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* === STYLES RESPONSIVE (POUR MOBILE) === */
+@media screen and (max-width: 768px) {
+    /* Afficher le bouton burger */
+    /* .menu-toggle { */
+        /* display: block; */
+    /* } */
+
+    /* Styles pour le menu mobile (caché par défaut) */
+    .nav-links {
+        display: none; /* Caché */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Positionnement au centre de l'écran */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centrage parfait */
+        
+        /* Dimensions et style du bloc (comme sur la photo 2) */
+        width: 80%; /* Largeur du bloc */
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+        
+        /* L'effet de flou (backdrop-filter) */
+        backdrop-filter: blur(15px); 
+        -webkit-backdrop-filter: blur(15px); /* Pour Safari */
+        
+        padding: 4rem 2rem;
+        border-radius: 20px; /* Coins arrondis */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre portée */
+        
+        z-index: 1000; /* Au-dessus de tout */
+    }
+
+    /* Styles pour les liens dans le menu mobile */
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .nav-links a {
+        font-size: 1.8rem;
+        color: #333; /* Couleur de texte sombre pour contraste */
+        font-weight: bold;
+    }
+
+    /* Afficher l'icône de fermeture dans le menu ouvert */
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        color: #333; /* Couleur sombre */
+    }
+
+    /* Classe pour afficher le menu (ajoutée par JS) */
+    .nav-links.active {
+        display: flex;
+    }
 }
